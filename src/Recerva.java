@@ -1,9 +1,11 @@
 
 import java.awt.Color;
+import javax.swing.Icon;
+import javax.swing.JOptionPane;
+import javax.swing.plaf.ComboBoxUI;
 
 public class Recerva extends javax.swing.JFrame {
 
-    
     int xMouse, yMouse;
     public Recerva() {
         initComponents();
@@ -22,6 +24,10 @@ public class Recerva extends javax.swing.JFrame {
         label1 = new javax.swing.JLabel();
         txtFecha = new javax.swing.JTextField();
         jSeparator5 = new javax.swing.JSeparator();
+        label3 = new javax.swing.JLabel();
+        jComboBox1 = new javax.swing.JComboBox<>();
+        jPanel4 = new javax.swing.JPanel();
+        btnReserva = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         btnMenu = new javax.swing.JLabel();
@@ -45,18 +51,18 @@ public class Recerva extends javax.swing.JFrame {
 
         label2.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         label2.setForeground(new java.awt.Color(255, 255, 255));
-        label2.setText("Selecciona la fecha de tu reserva");
+        label2.setText("Selecciona la hora de tu reserva");
         label2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         label2.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 label2MouseClicked(evt);
             }
         });
-        jPanel2.add(label2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 160, -1, -1));
+        jPanel2.add(label2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 260, -1, -1));
 
         txtNumPers.setBackground(new java.awt.Color(51, 51, 51));
         txtNumPers.setForeground(new java.awt.Color(153, 153, 153));
-        txtNumPers.setText("Ingrese el numero");
+        txtNumPers.setText("Ingrese numero");
         txtNumPers.setBorder(null);
         txtNumPers.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -69,7 +75,7 @@ public class Recerva extends javax.swing.JFrame {
             }
         });
         jPanel2.add(txtNumPers, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 100, 322, 30));
-        jPanel2.add(jSeparator4, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 220, 322, 10));
+        jPanel2.add(jSeparator4, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 220, 250, 10));
 
         label1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         label1.setForeground(new java.awt.Color(255, 255, 255));
@@ -97,7 +103,44 @@ public class Recerva extends javax.swing.JFrame {
             }
         });
         jPanel2.add(txtFecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 190, 322, 30));
-        jPanel2.add(jSeparator5, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 130, 322, 10));
+        jPanel2.add(jSeparator5, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 130, 250, 10));
+
+        label3.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        label3.setForeground(new java.awt.Color(255, 255, 255));
+        label3.setText("Selecciona la fecha de tu reserva");
+        label3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        label3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                label3MouseClicked(evt);
+            }
+        });
+        jPanel2.add(label3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 160, -1, -1));
+
+        jComboBox1.setBackground(new java.awt.Color(51, 51, 51));
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "8:00", "9:00", "10:00", "11:00", "12:00", "13:00", "14:00", "15:00", "16:00", "17:00", "18:00", "19:00", "20:00" }));
+        jComboBox1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jComboBox1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jComboBox1MouseClicked(evt);
+            }
+        });
+        jPanel2.add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 300, 250, -1));
+
+        jPanel4.setBackground(new java.awt.Color(102, 102, 102));
+        jPanel4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        btnReserva.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btnReserva.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        btnReserva.setText("Reservar");
+        btnReserva.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnReserva.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnReservaMouseClicked(evt);
+            }
+        });
+        jPanel4.add(btnReserva, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 160, 40));
+
+        jPanel2.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 380, 160, 40));
 
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 140, 800, 460));
 
@@ -251,7 +294,7 @@ public class Recerva extends javax.swing.JFrame {
         txtNumPers.setText("");
         txtNumPers.setForeground(Color.white);
         
-        txtFecha.setText("DD/MM/AAAA");
+        
         txtFecha.setForeground(new Color(153,153,153));
     }//GEN-LAST:event_txtNumPersMouseClicked
 
@@ -263,13 +306,31 @@ public class Recerva extends javax.swing.JFrame {
         txtFecha.setText("");
         txtFecha.setForeground(Color.white);
         
-        txtNumPers.setText("Ingrese numero");
+        
         txtNumPers.setForeground(new Color(153,153,153));
     }//GEN-LAST:event_txtFechaMouseClicked
 
     private void txtFechaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtFechaActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtFechaActionPerformed
+
+    private void label3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_label3MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_label3MouseClicked
+
+    private void jComboBox1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jComboBox1MouseClicked
+        txtFecha.setForeground(new Color(153,153,153));
+        
+        txtNumPers.setForeground(new Color(153,153,153));
+    }//GEN-LAST:event_jComboBox1MouseClicked
+
+    private void btnReservaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnReservaMouseClicked
+        String numero = txtNumPers.getText().trim();
+        String fecha = txtFecha.getText().trim();
+        String hora = (String) jComboBox1.getSelectedItem(); 
+        
+        
+    }//GEN-LAST:event_btnReservaMouseClicked
 
     /**
      * @param args the command line arguments
@@ -311,12 +372,15 @@ public class Recerva extends javax.swing.JFrame {
     private javax.swing.JLabel btnInicio;
     private javax.swing.JLabel btnMenu;
     private javax.swing.JLabel btnRecerva;
+    private javax.swing.JLabel btnReserva;
     private javax.swing.JPanel cerrar;
+    private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
+    private javax.swing.JPanel jPanel4;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JSeparator jSeparator3;
@@ -324,7 +388,12 @@ public class Recerva extends javax.swing.JFrame {
     private javax.swing.JSeparator jSeparator5;
     private javax.swing.JLabel label1;
     private javax.swing.JLabel label2;
+    private javax.swing.JLabel label3;
     private javax.swing.JTextField txtFecha;
     private javax.swing.JTextField txtNumPers;
     // End of variables declaration//GEN-END:variables
+
+    private Icon getIcon(String imagenerrorpng, int i, int i0) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
 }
